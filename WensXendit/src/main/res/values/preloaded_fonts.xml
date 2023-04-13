@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/</item>
+        <item>@font/baloo</item>
+        <item>@font/cantata_one</item>
+        <item>@font/capriola</item>
+        <item>@font/carrois_gothic</item>
+        <item>@font/montserrat_subrayada</item>
+        <item>@font/suez_one</item>
+        <item>@font/yeseva_one</item>
+    </array>
+</resources>

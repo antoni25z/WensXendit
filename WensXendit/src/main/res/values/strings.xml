@@ -1,0 +1,83 @@
+<resources>
+    <string-array name="ewallet_code">
+        <item>DANA</item>
+        <item>LINKAJA</item>
+        <item>OVO</item>
+        <item>ASTRAPAY</item>
+        <item>SHOPEEPAY</item>
+    </string-array>
+
+    <string-array name="direct_code">
+        <item>BRI</item>
+        <item>MANDIRI</item>
+    </string-array>
+
+    <string-array name="va_code">
+        <item>BCA</item>
+        <item>BJB</item>
+        <item>BNI</item>
+        <item>BRI</item>
+        <item>BSI</item>
+        <item>BSS(BANK SAHABAT SAMPOERNA)</item>
+        <item>MANDIRI</item>
+        <item>PERMATA</item>
+
+    </string-array>
+
+    <string-array name="qris_code">
+        <item>QRIS</item>
+    </string-array>
+
+    <string-array name="credit_card_code">
+        <item>CARD</item>
+    </string-array>
+
+    <string-array name="over_counter_code">
+        <item>ALFAMART</item>
+        <item>INDOMARET</item>
+    </string-array>
+
+    <string-array name="paylater_code">
+        <item>ID_KREDIVO</item>
+        <item>ID_AKULAKU</item>
+        <item>ID_UANGME</item>
+    </string-array>
+
+    <string name="atm_bni"><li>Masukkan kartu, pilih bahasa kemudian ketikkan 6 digit PIN ATM</li>\n<li>Pilih menu Lainnya</li>\n<li>Pilih Transfer kemudian pilih jenis rekening yang akan digunakan (misalnya Tabungan)</li>\n<li>Pilih Virtual Account Billing kemudian masukkan 16 digit nomornya. Jumlah yang harus dibayar akan muncul pada layar konfirmasi</li>\n<li>Jika sudah sesuai, lanjutkan transaksi dan simpan bukti transfer.</li>\n</string>
+    <string name="mobile_banking_bni"><li>Buka aplikasi BNI Mobile Banking lewat ponsel</li>\n<li>Isi user ID dan password</li>\n<li>Setelah terbuka, pilih menu Transfer kemudian tekan pilihan Virtual Account Billing</li>\n<li>Pilih rekening debet kemudian pilih input baru dan masukkan 16 digit nomor virtual account</li>\n<li>Jumlah tagihan akan muncul di layar. Lakukan konfirmasi kemudian ketikkan Password Transaksi</li>\n<li>Pembayaran selesai.</li>\n</string>
+    <string name="iBank_Personal"><li>Buka browser kemudian akses ibank.bni.co.id</li>\n<li>Isi kolom user ID dan password</li>\n<li>Pilih menu Transfer kemudian klik pada pilihan Virtual Account Billing</li>\n<li>Masukkan nomor virtual account yang dituju dan pilih rekening yang akan digunakan untuk membayar</li>\n<li>Jumlah tagihan akan muncul pada layar konfirmasi. Jika sudah cocok, lanjutkan transaksi</li>\n<li>Masukkan token atau Kode Otentikasi Token</li>\n<li>Jika transaksi sukses, Anda akan memperoleh notifikasi.</li>\n</string>
+    <string name="bca_mobile"><li>Buka BCA mobile, pilih menu m-Transfer</li>\n<li>Pilih menu “BCA Virtual Account”</li>\n<li>Masukkan nomor BCA Virtual Account dan klik “Send”</li>\n<li>Cek nominal yang muncul</li>\n<li>Masukkan PIN m-BCA</li>\n<li>Transaksi Berhasil</li>\n</string>
+    <string name="mybca"><li>Buka myBCA, pilih menu “Transfer”</li>\n<li>Pilih menu “Virtual Account”</li>\n<li>Masukkan nomor BCA Virtual Account dan klik “Kirim”</li>\n<li>Cek nominal yang muncul dan klik “Lanjut”</li>\n<li>Konfirmasi detail transaksi dan klik “Lanjut”</li>\n<li>Masukkan PIN myBCA</li>\n<li>Transaksi Berhasil</li>\n</string>
+    <string name="atm_bca"><li>Masukkan Kartu ATM dan PIN ATM BCA</li>\n<li>Pilih menu “Penarikan Tunai/Transaksi Lainnya”</li>\n<li>Pilih menu “Transaksi Lainnya”</li>\n<li>Pilih menu “Transfer”</li>\n<li>Pilih menu “Ke Rek BCA Virtual Account”</li>\n<li>Masukkan nomor BCA Virtual Account dan klik “Benar”</li>\n<li>Cek detail transaksi dan pilih “Ya”</li><li>Transaksi selesai</li>\n</string>
+    <string name="atm_mandiri"><li>Masukkan kartu ATM dan PIN ATM.</li>\n<li>Pilih menu Bayar/Beli.</li>\n<li>Pilih opsi Lainnya > Multipayment.</li>\n<li>Masukkan kode biller perusahaan (biasanya sudah tercantum di instruksi pembayaran).</li>\n<li>Masukkan nomor Virtual account > Benar.</li>\n<li>Masukkan angka yang diminta untuk memilih tagihan > Ya.</li>\n<li>Layar akan menampilkan konfirmasi. Jika sesuai, pilih Ya.</li>\n<li>Selesai.</li></string>
+    <string name="m_banking_mandiri"><li>Buka aplikasi m-banking.</li>\n<li>Masukkan username dan password.</li>\n<li>Pilih menu Bayar > One Time > Multipayment.</li>\n<li>Pilih Penyedia Jasa yang digunakan > Lanjut.</li>\n<li>Masukkan nomor Virtual account > Lanjut.</li>\n<li>Layar akan menampilkan konfirmasi. Jika sudah sesuai, masukkan PIN transaksi dan akhiri dengan OK.</li>\n<li>Selesai.</li>\n</string>
+    <string name="atm_bri"><li>Pilih Menu Transaksi Lain</li>\n<li>Pilih Menu Pembayaran</li>\n<li>Pilih Menu Lain-lain</li>\n<li>Pilih Menu BRIVA</li>\n<li>Masukkan Nomor Virtual Account, misal. 88788XXXXXXXXXXX</li>\n<li>Pilih Ya</li>\n<li>Ambil bukti bayar anda</li>\n<li>Selesai</li>\n</string>
+    <string name="mobile_banking_bri"><li>Login BRI Mobile</li>\n<li>Pilih Mobile Banking BRI</li>\n<li>Pilih Menu Pembayaran</li>\n<li>Pilih Menu BRIVA</li>\n<li>Masukkan Nomor Virtual Account, misal. 88788XXXXXXXXXXX</li>\n<li>Masukkan Nominal misal. 10000</li>\n<li>Klik OK</li>\n<li>Masukkan PIN Mobile</li>\n<li>Klik Kirim</li>\n<li>Bukti bayar akan dikirim melalui sms</li>\n<li>Selesai</li>\n</string>
+    <string name="internet_banking_bri"><li>Login Internet Banking</li>\n<li>Pilih Pembayaran</li>\n<li>Pilih BRIVA</li>\n<li>Masukkan Nomor Virtual Account, misal. 88788XXXXXXXXXXX</li>\n<li>Klik Kirim</li>\n<li>Masukkan Password</li>\n<li>Masukkan mToken</li>\n<li>Klik Kirim</li>\n<li>Bukti bayar akan ditampilkan</li>\n<li>Selesai</li>\n</string>
+
+    <string name="bjb"><li>Masukkan kartu ATM BJB anda</li>\n<li>Masukkan PIN</li>\n<li>Pilih menu "Transaksi Lainnya"</li>\n<li>Pilih menu "Virtual Account"</li>\n<li>Lalu pilih rekening debet yang akan digunakan</li>\n<li>Masukkan Nomor Virtual Account</li>\n<li>Konfirmasi detail transaksi anda</li>\n<li>Transaksi Anda telah selesai</li>\n<li>Setelah transaksi anda selesai, invoice ini akan diupdate secara otomatis. Proses ini mungkin memakan waktu hingga 5 menit</li>\n</string>
+
+    <string name="internet_banking_bjb"><li>Buka halaman https://ib.bankbjb.co.id/bjb.net</li>\n<li>Masukkan User ID dan Password</li>\n<li>Pilih menu "Virtual Account"</li>\n<li>Lalu pilih rekening debet yang akan digunakan</li>\n<li>Masukkan Nomor Virtual Account</li>\n<li>Konfirmasi detail transaksi anda</li>\n<li>Transaksi Anda telah selesai</li>\n<li>Setelah transaksi anda selesai, invoice ini akan diupdate secara otomatis. Proses ini mungkin memakan waktu hingga 5 menit</li>\n</string>
+
+    <string name="mobile_banking_bjb"><li>Buka aplikasi BJB Mobile</li>\n<li>Masukkan User ID dan Password</li>\n<li>Pilih menu "Virtual Account"</li>\n<li>Lalu pilih rekening debet yang akan digunakan</li>\n<li>Masukkan Nomor Virtual Account</li>\n<li>Konfirmasi detail transaksi anda</li>\n<li>Transaksi Anda telah selesai</li>\n<li>Setelah transaksi anda selesai, invoice ini akan diupdate secara otomatis. Proses ini mungkinmemakan waktu hingga 5 menit</li>\n</string>
+
+    <string name="atm_permata"><li>Masukkan kartu ATM Permata anda</li>\n<li>Masukkan PIN</li>\n<li>Pilih menu "Transaksi Lainnya"</li>\n<li>Pilih menu "Pembayaran"</li>\n<li>Pilih menu "Pembayaran Lainnya"</li>\n<li>Pilih menu "Virtual Account"</li>\n<li>Masukkan Nomor Virtual Account</li>\n<li>Lalu pilih rekening debet yang akan digunakan</li>\n<li>Konfirmasi detail transaksi anda</li>\n<li>Transaksi Anda telah selesai</li>\n<li>Setelah transaksi anda selesai, invoice ini akan diupdate secara otomatis. Proses ini mungkin memakan waktu hingga 5 menit</li>\n</string>
+
+    <string name="internet_banking_permata"><li>Buka situs https://new.permatanet.com</li>\n<li>Masukkan User ID dan Password</li>\n<li>Pilih "Pembayaran Tagihan"</li>\n<li>Pilih "Virtual Account"</li>\n<li>Masukk Nomor Virtual Account</li>\n<li>Periksa kembali detail pembayaran anda</li>\n<li>Masukkan otentikasi transaksi/token</li>\n<li>Transaksi Anda telah selesai</li>\n<li>Setelah transaksi anda selesai, invoice ini akan diupdate secara otomatis. Proses ini mungkin memakan waktu hingga 5 menit</li>\n</string>
+
+    <string name="mobile_banking_permata"><li>Buka aplikasi PermataMobile Internet</li>\n<li>Masukkan User ID dan Password</li>\n<li>Pilih "Pembayaran Tagihan"</li>\n<li>Pilih "Virtual Account"</li>\n<li>Masukkan Nomor Virtual Account Anda</li>\n<li>Masukkan otentikasi transaksi/token</li>\n<li>Transaksi Anda telah selesai</li>\n<li>Setelah transaksi anda selesai, invoice ini akan diupdate secara otomatis. Proses ini mungkin memakan waktu hingga 5 menit</li>\n</string>
+
+    <string name="atm_bss"><li>Masukkan kartu ATM dan PIN anda.</li>\n<li>Pilih menu TRANSAKSI LAINNYA → TRANSFER → TRANSFER KE BANK SAHABAT SAMPOERNA.</li>\n<li>Masukkan 16 digit nomor rekening virtual account XXXXXXXXXXXXXXXX.</li>\n<li>Masukkan nominal pembayaran.</li>\n<li>Cek kembali transaksi anda, lalu pilih YA untuk melanjutkan.</li>\n<li>Pembayaran melalui ATM sukses dilakukan.</li>\n</string>
+
+    <string name="internet_banking_bss"><li>Login akun Internet Banking pada handphone anda.</li>\n<li>Pilih menu TRANSFER DANA → TRANSFER KE REKENING BANK SAHABAT SAMPOERNA.</li>\n<li>Masukkan 16 digit nomor rekening virtual account XXXXXXXXXXXXXXXX.</li>\n<li>Masukkan nominal pembayaran</li>\n<li>Input token i-Banking anda.</li>\n<li>Pembayaran melalui i-Banking sukses dilakukan.</li>\n</string>
+
+    <string name="mobile_banking_bss"><li>Login akun Mobile Banking pada handphone anda.</li>\n<li>Pilih menu TRANSFER DANA → TRANSFER KE ANTAR BANK. Masukkan kode BANK SAHABAT SAMPOERNA yaitu 523 → Pilih YA.</li>\n<li>Masukkan 16 digit nomor rekening virtual account XXXXXXXXXXXXXXXX.</li>\n<li>Masukkan nominal pembayaran</li>\n<li>Input token M-Banking anda.</li>\n<li>Pembayaran melalui M-Banking sukses dilakukan.</li>\n</string>
+
+    <string name="atm_bsi"><li>Masukkan kartu ATM BSI anda</li>\n<li>Masukkan PIN</li>\n<li>Pilih menu "Pembayaran/Pembelian"</li>\n<li>Pilih menu "Institusi"</li>\n<li>Masukkan kode BSI VA Nomor Virtual Account</li>\n<li>Detail yang ditampilkan: NIM, Nama, &amp; Total Tagihan</li>\n<li>Konfirmasi detail transaksi anda</li>\n<li>Transaksi Anda telah selesai</li>\n<li>Setelah transaksi anda selesai, invoice ini akan diupdate secara otomatis. Proses ini mungkin memakan waktu hingga 5 menit</li>\n</string>
+
+    <string name="internet_banking_bsi"><li>Buka situs https://bsinet.bankbsi.co.id</li>\n<li>Masukkan User ID dan Password</li>\n<li>Pilih Menu “Pembayaran”</li>\n<li>Pilih Nomor Rekening BSI Anda</li>\n<li>Pilih menu "Institusi"</li>\n<li>Masukkan nama institusi Xendit (kode 9347)</li>\n<li>Masukkan Nomor Virtual Account tanpa diikuti kode institusi (tanpa 4 digit pertama)</li>\n<li>Konfirmasi detail transaksi anda</li>\n<li>Masukkan otentikasi transaksi/token</li>\n<li>Transaksi Anda telah selesai</li>\n<li>Setelah transaksi anda selesai, invoice ini akan diupdate secara otomatis. Proses ini mungkin memakan waktu hingga 5 menit</li>\n</string>
+
+    <string name="mobile_banking_bsi"><li>Buka aplikasi BSI Mobile</li>\n<li>Masukkan User ID dan Password</li>\n<li>Pilih Menu “Pembayaran”</li>\n<li>Pilih Nomor Rekening BSI Anda</li>\n<li>Pilih menu "Institusi"</li>\n<li>Masukkan nama institusi Xendit (kode 9347)</li>\n<li>Masukkan Nomor Virtual Account tanpa diikuti kode institusi</li>\n<li>Konfirmasi detail transaksi anda</li>\n<li>Masukkan otentikasi transaksi/token</li>\n<li>Transaksi Anda telah selesai</li>\n<li>Setelah transaksi anda selesai, invoice ini akan diupdate secara otomatis. Proses ini mungkin memakan waktu hingga 5 menit</li>\n</string>
+
+    <string name="qr_code_panduan"><li>Unduh QR Code di atas</li>\n<li>Buka OVO, Gojek, Dana, Link Aja, atau aplikasi mobile-banking yang Anda miliki</li>\n<li>Pilih opsi bayar lalu unggah QR Code melalui menu di kanan atas</li>\n<li>Input jumlah nominal yang ingin dibayarkan</li>\n<li>Masukkan nama lengkap Anda lalu esekusi pembayaran</li>\n</string>
+</resources>
