@@ -1,6 +1,4 @@
 package com.wensolution.wensxendit
-
-import android.content.res.Resources
 import android.graphics.*
 import android.widget.ImageView
 import com.google.zxing.BarcodeFormat
@@ -11,10 +9,14 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel
 import java.nio.charset.Charset
 import java.text.DecimalFormat
 import java.text.NumberFormat
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.HashMap
 
 fun convertCurrencyFormat(value: Double): String {
-    val formatter: NumberFormat = DecimalFormat("#.###")
-    return formatter.format(value)
+    val formatter: NumberFormat = DecimalFormat("#,###")
+    val formatterNum = formatter.format(value)
+    return formatterNum.replace(",", ".")
 }
 
 fun generateBarcode(
@@ -56,4 +58,22 @@ fun createBarcode(
     } catch (e: WriterException) {
         e.printStackTrace()
     }
+}
+
+fun convertServerDateToUserTimeZone(serverDate: String?): String {
+    var ourdate: String
+    try {
+        val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.s'Z'", Locale.US)
+        formatter.timeZone = TimeZone.getTimeZone("UTC")
+        val value = serverDate?.let { formatter.parse(it) }
+        val timeZone = TimeZone.getTimeZone("Asia/Kolkata")
+        val dateFormatter = SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.US) //this format changeable
+        dateFormatter.timeZone = timeZone
+        ourdate = dateFormatter.format(Objects.requireNonNull(value))
+
+    } catch (e: Exception) {
+        e.printStackTrace()
+        ourdate = "0000-00-00 00:00:00"
+    }
+    return ourdate
 }

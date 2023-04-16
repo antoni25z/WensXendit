@@ -3,9 +3,25 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+ext {
+    PUBLISH_GROUP_ID = 'io.github.antoni25z'
+    PUBLISH_VERSION = '0.0.1'
+    PUBLISH_ARTIFACT_ID = 'WensXendit'
+    PUBLISH_DESCRIPTION = 'Xendit For Android'
+    PUBLISH_URL = 'https://github.com/elye/loaderviewlibrary'
+    PUBLISH_LICENSE_NAME = ''
+    PUBLISH_LICENSE_URL = ''
+    PUBLISH_DEVELOPER_ID = 'antoni25z'
+    PUBLISH_DEVELOPER_NAME = 'antoni'
+    PUBLISH_DEVELOPER_EMAIL = 'antonizheng99@gmail.com'
+    PUBLISH_SCM_CONNECTION = 'scm:git:github.com/antoni25z/WensXendit.git'
+    PUBLISH_SCM_DEVELOPER_CONNECTION = 'scm:git:ssh://github.com/antoni25z/WensXendit.git'
+    PUBLISH_SCM_URL = 'https://github.com/antoni25z/WensXendit/tree/master'
+}
+
+apply from: "${rootProject.projectDir}/scripts/publish-module.gradle"
+
 android {
-
-
 
     namespace 'com.wensolution.wensxendit'
     compileSdk 33

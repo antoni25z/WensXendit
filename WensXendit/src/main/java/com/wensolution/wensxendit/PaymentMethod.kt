@@ -11,7 +11,7 @@ object PaymentMethod {
     const val BNI = "BNI"
     const val BRI = "BRI"
     const val BSI = "BSI"
-    const val BSS = "BSS(BANK SAHABAT SAMPOERNA)"
+    const val BSS = "SAHABAT_SAMPOERNA"
     const val CIMB = "CIMB"
     const val MANDIRI = "MANDIRI"
     const val PERMATA = "PERMATA"

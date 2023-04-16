@@ -7,10 +7,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.wensolution.wensxendit.Panduan
-import com.wensolution.wensxendit.PanduanAdapter
-import com.wensolution.wensxendit.PaymentMethod
-import com.wensolution.wensxendit.R
+import com.wensolution.wensxendit.*
 import com.wensolution.wensxendit.databinding.ActivityPaymentDetailBinding
 
 
@@ -30,7 +27,7 @@ class PaymentDetailActivity : AppCompatActivity() {
 
         binding.vaTxt.text = va
         binding.totalTxt.text = total.toString()
-        binding.expiredTxt.text = expired
+        binding.expiredTxt.text = convertServerDateToUserTimeZone(expired)
 
         binding.panduanRv.layoutManager = LinearLayoutManager(this)
 

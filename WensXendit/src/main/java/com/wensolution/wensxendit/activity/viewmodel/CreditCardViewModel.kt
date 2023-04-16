@@ -1,6 +1,5 @@
 package com.wensolution.wensxendit.activity.viewmodel
 
-import android.app.Application
 import android.content.Context
 import android.widget.Toast
 import androidx.lifecycle.*
@@ -11,7 +10,7 @@ import com.wensolution.wensxendit.apiservice.response.PaymentRequestResponse
 import kotlinx.coroutines.launch
 import quicktype.CreditCardPaymentResponse
 
-class CreditCardViewModel(val username: String, val context: Context) : ViewModel() {
+class CreditCardViewModel(username: String, val context: Context) : ViewModel() {
 
     private val service = ApiConfig.getBaseApiService(username)
 
