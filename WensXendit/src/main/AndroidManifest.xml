@@ -3,6 +3,12 @@
 
     <application>
         <activity
+            android:name=".SuccessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.CheckOutWebActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.CreditCardVerificationActivity"
             android:exported="false" />
         <activity

@@ -12,6 +12,8 @@ data class EwalletRequestBody(
     data class PaymentMethod(
         val type: String = "EWALLET",
         val ewallet: Ewallet,
+        @SerializedName("reference_id")
+        val referenceId: String,
         val reusability: String = "ONE_TIME_USE"
     ) {
         data class Ewallet(

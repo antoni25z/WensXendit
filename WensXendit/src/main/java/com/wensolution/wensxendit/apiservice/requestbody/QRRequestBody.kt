@@ -6,7 +6,7 @@ data class QRRequestBody(
     val amount: Int,
     val currency: String = "IDR",
     @SerializedName("payment_method")
-    val paymentMethod : PaymentMethod = PaymentMethod(),
+    val paymentMethod : PaymentMethod,
     val description: String = "Topup",
     val metadata: MetaData = MetaData()
 ) {
@@ -15,7 +15,8 @@ data class QRRequestBody(
         @SerializedName("qr_code")
         val qrCode: QRCode = QRCode(),
         val reusability: String = "ONE_TIME_USE",
-
+        @SerializedName("reference_id")
+        val referenceId: String,
     )
 
     data class QRCode(

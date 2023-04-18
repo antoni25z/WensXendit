@@ -17,9 +17,9 @@ class WensXendit(val context: Context) {
     private val payment = Payment(context)
     private val payout = Payout()
 
-    fun startPayment(amount: Long) {
+    fun startPayment(amount: Long, referenceId: String, customerName: String) {
         if (xenditApiKey.isNotBlank() && activeMethods.isNotEmpty()) {
-            payment.startPayment(activeMethods, amount, xenditApiKey)
+            payment.startPayment(activeMethods, amount, xenditApiKey, referenceId, customerName)
         }
     }
 

@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wensolution.wensxendit.*
+import com.wensolution.wensxendit.IntentKey.CUSTOMER_NAME
+import com.wensolution.wensxendit.IntentKey.REFERENCE_ID
 import com.wensolution.wensxendit.activity.viewmodel.PaymentMethodViewModel
 import com.wensolution.wensxendit.activity.viewmodel.ViewModelFactory
 import com.wensolution.wensxendit.apiservice.requestbody.EwalletRequestBody
@@ -17,11 +19,13 @@ import java.util.UUID
 
 class PaymentMethodActivity : AppCompatActivity(), PaymentClick, OvoClick {
 
-    lateinit var binding: ActivityPaymentMethodBinding
-    lateinit var viewModel: PaymentMethodViewModel
+    private lateinit var binding: ActivityPaymentMethodBinding
+    private lateinit var viewModel: PaymentMethodViewModel
 
-    var totalPay = 0L
-    var username = ""
+    private var totalPay = 0L
+    private var username = ""
+    private var referenceId = ""
+    private var customerName = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +35,8 @@ class PaymentMethodActivity : AppCompatActivity(), PaymentClick, OvoClick {
         val actives = intent.getStringArrayExtra(ACTIVE_METHOD)
         totalPay = intent.getLongExtra(TOTAL_PAY, 0)
         username = intent.getStringExtra(USERNAME) ?: ""
+        referenceId = intent.getStringExtra(REFERENCE_ID) ?: ""
+        customerName = intent.getStringExtra(CUSTOMER_NAME) ?: ""
 
         val factory = ViewModelFactory(username, this)
 
@@ -97,10 +103,19 @@ class PaymentMethodActivity : AppCompatActivity(), PaymentClick, OvoClick {
 
         viewModel.getResponse.observe(this) {
             if (it?.paymentMethod?.type == "EWALLET") {
-                val i = Intent(Intent.ACTION_VIEW)
-                i.data = Uri.parse(it.actions[1].url)
-                i.setPackage("id.dana")
-                startActivity(i)
+                if (it.paymentMethod.ewallet?.channelCode == PaymentMethod.SHOPEEPAY) {
+                    val i = Intent(Intent.ACTION_VIEW)
+                    i.data = Uri.parse(it.actions[1].url)
+                    i.setPackage("id.dana")
+                    startActivity(i)
+                } else {
+                    val intent = Intent(this, CheckOutWebActivity::class.java)
+                    intent.putExtra("UPDATED_DATE", it.updated)
+                    intent.putExtra("PAYMENT_CODE", it.paymentMethod.ewallet?.channelCode)
+                    intent.putExtra("REFERENCE_ID", it.paymentMethod.referenceID)
+                    intent.putExtra("TOTAL", it.amount)
+                    startActivity(intent)
+                }
             } else if (it?.paymentMethod?.type == "VIRTUAL_ACCOUNT") {
                 val i = Intent(this, PaymentDetailActivity::class.java)
                 i.putExtra("VIRTUAL_ACCOUNT_NUMBER", it.paymentMethod.virtualAccount?.channelProperties?.virtualAccountNumber)
@@ -127,21 +142,22 @@ class PaymentMethodActivity : AppCompatActivity(), PaymentClick, OvoClick {
     override fun onClick(payment: String, mode: String, subTotal: Double) {
         when (mode) {
             "EWALLET" -> {
-                val property = EwalletRequestBody.PaymentMethod.Ewallet.ChannelProperties("https://redirect.me/goodstuff", "https://redirect.me/goodstuff")
+                val property = EwalletRequestBody.PaymentMethod.Ewallet.ChannelProperties("success", "failure")
                 val ewallet = EwalletRequestBody.PaymentMethod.Ewallet(payment, property)
-                val paymentMethod = EwalletRequestBody.PaymentMethod(ewallet = ewallet)
+                val paymentMethod = EwalletRequestBody.PaymentMethod(ewallet = ewallet, referenceId = referenceId)
                 val requestBody = EwalletRequestBody(amount = subTotal.toInt(), paymentMethod = paymentMethod)
                 viewModel.createPayment(requestBody)
             }
             "VA" -> {
-                val property = VaRequestBody.PaymentMethod.VirtualAccount.ChannelProperty("Test")
+                val property = VaRequestBody.PaymentMethod.VirtualAccount.ChannelProperty(customerName)
                 val va = VaRequestBody.PaymentMethod.VirtualAccount(payment, property)
-                val paymentMethod = VaRequestBody.PaymentMethod(virtualAccount = va, referenceId = "pm-level-${UUID.randomUUID()}")
+                val paymentMethod = VaRequestBody.PaymentMethod(virtualAccount = va, referenceId = referenceId)
                 val requestBody = VaRequestBody(amount = subTotal.toInt(), paymentMethod = paymentMethod)
                 viewModel.createVaPayment(requestBody)
             }
             "QR" -> {
-                val requestBody = QRRequestBody(amount = subTotal.toInt())
+                val paymentMethod = QRRequestBody.PaymentMethod(referenceId = referenceId)
+                val requestBody = QRRequestBody(amount = subTotal.toInt(), paymentMethod = paymentMethod)
                 viewModel.createQrPayment(requestBody)
             }
             "CARD" -> {
@@ -154,9 +170,9 @@ class PaymentMethodActivity : AppCompatActivity(), PaymentClick, OvoClick {
     }
 
     override fun onOvoClick(payment: String, subtotal: Double, phoneNumber: String) {
-        val property = EwalletRequestBody.PaymentMethod.Ewallet.ChannelProperties("https://redirect.me/goodstuff", "https://redirect.me/goodstuff", "+62" + phoneNumber)
+        val property = EwalletRequestBody.PaymentMethod.Ewallet.ChannelProperties("success", "success", "+62" + phoneNumber)
         val ewallet = EwalletRequestBody.PaymentMethod.Ewallet(payment, property)
-        val paymentMethod = EwalletRequestBody.PaymentMethod(ewallet = ewallet)
+        val paymentMethod = EwalletRequestBody.PaymentMethod(ewallet = ewallet, referenceId = referenceId)
         val requestBody = EwalletRequestBody(amount = subtotal.toInt(), paymentMethod = paymentMethod)
         viewModel.createPayment(requestBody)
     }

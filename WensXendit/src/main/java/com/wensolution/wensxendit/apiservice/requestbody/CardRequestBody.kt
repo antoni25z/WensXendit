@@ -6,6 +6,8 @@ data class CardRequestBody(
     val type: String = "CARD",
     val card: Card,
     val reusability: String = "ONE_TIME_USE",
+    @SerializedName("reference_id")
+    val referenceId: String,
     val description: String = "Topup",
     val metadata: MetaData = MetaData()
 ) {
