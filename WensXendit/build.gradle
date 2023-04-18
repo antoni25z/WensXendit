@@ -5,7 +5,7 @@ plugins {
 
 ext {
     PUBLISH_GROUP_ID = 'io.github.antoni25z'
-    PUBLISH_VERSION = '0.0.2'
+    PUBLISH_VERSION = '0.0.3'
     PUBLISH_ARTIFACT_ID = 'WensXendit'
     PUBLISH_DESCRIPTION = 'Xendit For Android'
     PUBLISH_URL = 'https://github.com/elye/loaderviewlibrary'
