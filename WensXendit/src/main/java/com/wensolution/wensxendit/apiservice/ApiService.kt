@@ -1,8 +1,9 @@
 package com.wensolution.wensxendit.apiservice
 
 import com.wensolution.wensxendit.apiservice.requestbody.*
-import com.wensolution.wensxendit.apiservice.response.AvailableBankResponse
+import com.wensolution.wensxendit.apiservice.response.XenditAvailableBankResponse
 import com.wensolution.wensxendit.apiservice.response.DisbursmentResponse
+import com.wensolution.wensxendit.apiservice.response.IlumaAvailableBankResponse
 import com.wensolution.wensxendit.apiservice.response.PaymentRequestResponse
 import quicktype.CreditCardPaymentResponse
 import retrofit2.Call
@@ -31,5 +32,8 @@ interface ApiService {
     fun createDisbursements(@Body disbursmentRequestBody: DisbursmentRequestBody) : Call<DisbursmentResponse>
 
     @GET("available_disbursements_banks")
-    fun getAvailableBanks() : Call<List<AvailableBankResponse>>
+    fun getXenditAvailableBanks() : Call<List<XenditAvailableBankResponse>>
+
+    @GET("bank/available_bank_codes")
+    fun getIlumaAvailableBanks() : Call<List<IlumaAvailableBankResponse>>
 }

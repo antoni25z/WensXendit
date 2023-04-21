@@ -12,7 +12,7 @@ import quicktype.CreditCardPaymentResponse
 
 class CreditCardViewModel(username: String, val context: Context) : ViewModel() {
 
-    private val service = ApiConfig.getBaseApiService(username)
+    private val service = ApiConfig.getXenditApiService(username)
 
     val response = MutableLiveData<CreditCardPaymentResponse?>()
     val getResponse: LiveData<CreditCardPaymentResponse?> get() = response

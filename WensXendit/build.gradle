@@ -5,10 +5,10 @@ plugins {
 
 ext {
     PUBLISH_GROUP_ID = 'io.github.antoni25z'
-    PUBLISH_VERSION = '0.0.3'
+    PUBLISH_VERSION = '0.0.4'
     PUBLISH_ARTIFACT_ID = 'WensXendit'
     PUBLISH_DESCRIPTION = 'Xendit For Android'
-    PUBLISH_URL = 'https://github.com/elye/loaderviewlibrary'
+    PUBLISH_URL = 'https://github.com/antoni25z/WensXendit'
     PUBLISH_LICENSE_NAME = ''
     PUBLISH_LICENSE_URL = ''
     PUBLISH_DEVELOPER_ID = 'antoni25z'

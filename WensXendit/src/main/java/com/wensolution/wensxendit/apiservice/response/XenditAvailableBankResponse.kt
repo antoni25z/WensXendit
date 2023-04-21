@@ -2,7 +2,7 @@ package com.wensolution.wensxendit.apiservice.response
 
 import com.google.gson.annotations.SerializedName
 
-data class AvailableBankResponse(
+data class XenditAvailableBankResponse(
     val name: String,
     val code: String,
     @SerializedName("can_disburse")

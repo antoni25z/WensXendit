@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 
 class PaymentMethodViewModel(username: String) : ViewModel() {
 
-    private val service = ApiConfig.getBaseApiService(username)
+    private val service = ApiConfig.getXenditApiService(username)
 
     val response = MutableLiveData<PaymentRequestResponse?>()
     val getResponse: LiveData<PaymentRequestResponse?> get() = response
