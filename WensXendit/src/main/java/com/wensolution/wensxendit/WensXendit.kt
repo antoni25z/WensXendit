@@ -1,8 +1,11 @@
 package com.wensolution.wensxendit
 
 import android.content.Context
+import com.wensolution.wensxendit.apiservice.requestbody.ValidateNameRequestBody
+import com.wensolution.wensxendit.apiservice.response.FetchDisburtsmentResponse
 import com.wensolution.wensxendit.payment.Payment
 import com.wensolution.wensxendit.payout.Payout
+import com.wensolution.wensxendit.payout.Result
 
 class WensXendit(val context: Context) {
     private var xenditApiKey = ""
@@ -54,6 +57,18 @@ class WensXendit(val context: Context) {
                 }
                 banks(newList)
             }
+        }
+    }
+
+    fun validateBankName(data: ValidateNameRequestBody, result: (result: Result) -> Unit) {
+        payout.validateBankName(ilumaApiKey, data) {
+            result(it)
+        }
+    }
+
+    fun getDisbursement(externalId: String, disbursement: (disburse: FetchDisburtsmentResponse) -> Unit) {
+        payout.getDisbursement(externalId, xenditApiKey) {
+            disbursement(it)
         }
     }
 
