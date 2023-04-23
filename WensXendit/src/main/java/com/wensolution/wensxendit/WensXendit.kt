@@ -33,8 +33,10 @@ class WensXendit(val context: Context) {
         }
     }
 
-    fun createDisbursement(externalId:String, amount: Long, bankCode: String, holderName: String, accountNumber: String, disburse: (message: String) -> Unit) {
-        payout.createDisbursement(xenditApiKey, externalId, amount, bankCode, holderName, accountNumber, disburse)
+    fun createDisbursement(externalId:String, amount: Long, bankCode: String, holderName: String, accountNumber: String, disburse: (message: String, success: Boolean) -> Unit) {
+        payout.createDisbursement(xenditApiKey, externalId, amount, bankCode, holderName, accountNumber) { message, success ->
+            disburse(message, success)
+        }
     }
 
     fun getAvailableBanks(banks: (banks: List<AvailableBankModel>) -> Unit) {
