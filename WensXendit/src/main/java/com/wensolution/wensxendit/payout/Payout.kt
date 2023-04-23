@@ -24,7 +24,7 @@ class Payout() {
         bankCode: String,
         holderName: String,
         accountNumber: String,
-        disburse: (message: String) -> Unit
+        disburse: (message: String, success: Boolean) -> Unit
     ) {
         val service = ApiConfig.getXenditApiService(username)
         val describe = "Penarikan Saldo"
@@ -44,14 +44,15 @@ class Payout() {
                     response: Response<DisbursmentResponse>
                 ) {
                     if (response.isSuccessful) {
-                        disburse("Penarikan Sedang Diproses")
+                        disburse("Penarikan Sedang Diproses", true)
                     } else {
-                        disburse("Terjadi Kesalahan")
+                        disburse("Terjadi Kesalahan", false)
                     }
                 }
 
                 override fun onFailure(call: Call<DisbursmentResponse>, t: Throwable) {
                     Log.d("de", t.message, t)
+                    disburse("Terjadi Kesalahan", false)
                 }
 
             })
