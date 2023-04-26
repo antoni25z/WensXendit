@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wensolution.wensxendit.*
@@ -85,6 +86,19 @@ class PaymentMethodActivity : AppCompatActivity(), PaymentClick, OvoClick {
                 if(actives.contains(i)) {
                     cardList.add(i)
                 }
+            }
+
+            if (vaList.isEmpty()) {
+                binding.vaCard.isVisible = false
+            }
+            if (ewalletList.isEmpty()) {
+                binding.ewalletCard.isVisible = false
+            }
+            if (qrs.isEmpty()) {
+                binding.qrCard.isVisible = false
+            }
+            if (cards.isEmpty()) {
+                binding.cardCard.isVisible = false
             }
 
             binding.ewalletRv.adapter = PaymentMethodAdapter(ewalletList, totalPay, "EWALLET", this, this)
