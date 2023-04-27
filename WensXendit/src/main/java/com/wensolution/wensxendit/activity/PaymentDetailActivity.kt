@@ -4,11 +4,13 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.wensolution.wensxendit.*
 import com.wensolution.wensxendit.databinding.ActivityPaymentDetailBinding
+import java.util.concurrent.TimeUnit
 
 
 class PaymentDetailActivity : AppCompatActivity() {
@@ -27,6 +29,23 @@ class PaymentDetailActivity : AppCompatActivity() {
 
         binding.vaTxt.text = va
         binding.totalTxt.text = total.toString()
+
+        object : CountDownTimer(86400000, 1000) {
+            override fun onTick(millisUntilFinish: Long) {
+                val hour = TimeUnit.MILLISECONDS.toHours(millisUntilFinish)
+                val minute = TimeUnit.MILLISECONDS.toMinutes(millisUntilFinish) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millisUntilFinish))
+                val second = TimeUnit.MILLISECONDS.toSeconds(millisUntilFinish) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinish))
+
+                val format = String.format("%02d:%02d:%02d",hour, minute, second)
+                binding.expiredTxt.text = format
+            }
+
+            override fun onFinish() {
+
+            }
+
+        }.start()
+
         binding.expiredTxt.text = convertServerDateToUserTimeZone(expired)
 
         binding.panduanRv.layoutManager = LinearLayoutManager(this)

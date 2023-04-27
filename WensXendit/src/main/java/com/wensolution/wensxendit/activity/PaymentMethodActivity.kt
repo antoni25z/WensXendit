@@ -94,10 +94,10 @@ class PaymentMethodActivity : AppCompatActivity(), PaymentClick, OvoClick {
             if (ewalletList.isEmpty()) {
                 binding.ewalletCard.isVisible = false
             }
-            if (qrs.isEmpty()) {
+            if (qrList.isEmpty()) {
                 binding.qrCard.isVisible = false
             }
-            if (cards.isEmpty()) {
+            if (cardList.isEmpty()) {
                 binding.cardCard.isVisible = false
             }
 
