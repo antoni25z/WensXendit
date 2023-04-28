@@ -16,7 +16,6 @@ import com.wensolution.wensxendit.apiservice.requestbody.EwalletRequestBody
 import com.wensolution.wensxendit.apiservice.requestbody.QRRequestBody
 import com.wensolution.wensxendit.apiservice.requestbody.VaRequestBody
 import com.wensolution.wensxendit.databinding.ActivityPaymentMethodBinding
-import java.util.UUID
 
 class PaymentMethodActivity : AppCompatActivity(), PaymentClick, OvoClick {
 
@@ -119,15 +118,13 @@ class PaymentMethodActivity : AppCompatActivity(), PaymentClick, OvoClick {
             if (it?.paymentMethod?.type == "EWALLET") {
                 if (it.paymentMethod.ewallet?.channelCode == PaymentMethod.SHOPEEPAY) {
                     val i = Intent(Intent.ACTION_VIEW)
-                    i.data = Uri.parse(it.actions[1].url)
-                    i.setPackage("id.dana")
+                    i.data = Uri.parse(it.actions[0].url)
                     startActivity(i)
-                } else {
+                } else if (it.paymentMethod.ewallet?.channelCode == PaymentMethod.OVO) {
+                    return@observe
+                }else {
                     val intent = Intent(this, CheckOutWebActivity::class.java)
-                    intent.putExtra("UPDATED_DATE", it.updated)
-                    intent.putExtra("PAYMENT_CODE", it.paymentMethod.ewallet?.channelCode)
-                    intent.putExtra("REFERENCE_ID", it.paymentMethod.referenceID)
-                    intent.putExtra("TOTAL", it.amount)
+                    intent.putExtra(IntentKey.URL_KEY, it.actions[0].url)
                     startActivity(intent)
                 }
             } else if (it?.paymentMethod?.type == "VIRTUAL_ACCOUNT") {
@@ -156,7 +153,7 @@ class PaymentMethodActivity : AppCompatActivity(), PaymentClick, OvoClick {
     override fun onClick(payment: String, mode: String, subTotal: Double) {
         when (mode) {
             "EWALLET" -> {
-                val property = EwalletRequestBody.PaymentMethod.Ewallet.ChannelProperties("success", "failure")
+                val property = EwalletRequestBody.PaymentMethod.Ewallet.ChannelProperties("https://success", "https://failure")
                 val ewallet = EwalletRequestBody.PaymentMethod.Ewallet(payment, property)
                 val paymentMethod = EwalletRequestBody.PaymentMethod(ewallet = ewallet, referenceId = referenceId)
                 val requestBody = EwalletRequestBody(amount = subTotal.toInt(), paymentMethod = paymentMethod)
@@ -184,10 +181,10 @@ class PaymentMethodActivity : AppCompatActivity(), PaymentClick, OvoClick {
     }
 
     override fun onOvoClick(payment: String, subtotal: Double, phoneNumber: String) {
-        val property = EwalletRequestBody.PaymentMethod.Ewallet.ChannelProperties("success", "success", "+62" + phoneNumber)
+        val property = EwalletRequestBody.PaymentMethod.Ewallet.ChannelProperties("https://success", "https://failure", "+62" + phoneNumber)
         val ewallet = EwalletRequestBody.PaymentMethod.Ewallet(payment, property)
         val paymentMethod = EwalletRequestBody.PaymentMethod(ewallet = ewallet, referenceId = referenceId)
         val requestBody = EwalletRequestBody(amount = subtotal.toInt(), paymentMethod = paymentMethod)
-        viewModel.createPayment(requestBody)
+        viewModel.createOvoPayment(requestBody)
     }
 }

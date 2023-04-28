@@ -31,6 +31,14 @@ class PaymentMethodViewModel(username: String) : ViewModel() {
         }
     }
 
+    fun createOvoPayment(paymentRequestBody: EwalletRequestBody) {
+        loading.value = true
+        viewModelScope.launch {
+            val c_response = service?.ewalletPaymentRequest(paymentRequestBody)
+            response.postValue(c_response)
+        }
+    }
+
     fun createVaPayment(paymentRequestBody: VaRequestBody) {
         loading.value = true
         viewModelScope.launch {

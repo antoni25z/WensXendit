@@ -41,14 +41,14 @@ fun createBarcode(
         val bitMatrix = multiFormatWriter.encode(
             String(barcode!!.toByteArray(charset)),
             BarcodeFormat.QR_CODE,
-            barcodeImg.width,
-            barcodeImg.height,
+            200,
+            200,
             hintMap
         )
-        bitmap = Bitmap.createBitmap(barcodeImg.width, barcodeImg.height, Bitmap.Config.RGB_565)
+        bitmap = Bitmap.createBitmap(200, 200, Bitmap.Config.RGB_565)
 
-        for (i in 0 until barcodeImg.width) {
-            for (j in 0 until barcodeImg.height) {
+        for (i in 0 until 200) {
+            for (j in 0 until 200) {
                 bitmap?.setPixel(i, j, if (bitMatrix.get(i, j)) Color.BLACK else Color.WHITE)
             }
         }
@@ -63,7 +63,7 @@ fun createBarcode(
 fun convertServerDateToUserTimeZone(serverDate: String?): String {
     var ourdate: String
     try {
-        val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.s'Z'", Locale.US)
+        val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US)
         formatter.timeZone = TimeZone.getTimeZone("UTC")
         val value = serverDate?.let { formatter.parse(it) }
         val timeZone = TimeZone.getTimeZone("Asia/Kolkata")
@@ -73,7 +73,19 @@ fun convertServerDateToUserTimeZone(serverDate: String?): String {
 
     } catch (e: Exception) {
         e.printStackTrace()
-        ourdate = "0000-00-00 00:00:00"
+        try {
+            val formatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.US)
+            formatter.timeZone = TimeZone.getTimeZone("UTC")
+            val value = serverDate?.let { formatter.parse(it) }
+            val timeZone = TimeZone.getTimeZone("Asia/Kolkata")
+            val dateFormatter = SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.US) //this format changeable
+            dateFormatter.timeZone = timeZone
+            ourdate = dateFormatter.format(Objects.requireNonNull(value))
+
+        } catch (e: Exception) {
+            e.printStackTrace()
+            ourdate = "0000-00-00 00:00:00"
+        }
     }
     return ourdate
 }
