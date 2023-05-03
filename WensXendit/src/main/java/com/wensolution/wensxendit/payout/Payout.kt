@@ -76,6 +76,7 @@ class Payout() {
                 }
 
                 override fun onFailure(call: Call<List<IlumaAvailableBankResponse>>, t: Throwable) {
+                    Log.d("2504", t.message, t)
                 }
 
             })
@@ -102,6 +103,7 @@ class Payout() {
                     call: Call<List<XenditAvailableBankResponse>>,
                     t: Throwable
                 ) {
+                    Log.d("2504", t.message, t)
                 }
 
             })

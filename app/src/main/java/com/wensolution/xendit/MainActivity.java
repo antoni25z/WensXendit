@@ -32,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
         findViewById(R.id.t).setOnClickListener(view -> wensXendit.startPayment(5000, "dwadwadadwa", "antoni"));
 
+        wensXendit.getAvailableBanks(availableBankModels -> {
+            Log.d("2504", String.valueOf(availableBankModels.size()));
+            return null;
+        });
 
     }
 }
